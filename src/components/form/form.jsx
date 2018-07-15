@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 class Form extends Component {
   render() {
@@ -8,6 +8,6 @@ class Form extends Component {
       </div>
     );
   }
-};
+}
 
 export { Form };
