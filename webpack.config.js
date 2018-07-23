@@ -16,6 +16,13 @@ module.exports = {
       amd: 'react',
       umd: 'react',
     },
+    'prop-types': {
+      commonjs: 'prop-types',
+      commonjs2: 'prop-types',
+      amd: 'prop-types',
+      umd: 'prop-types',
+      root: 'PropTypes',
+    },
   },
   module: {
     rules: [

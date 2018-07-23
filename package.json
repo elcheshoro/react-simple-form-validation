@@ -4,8 +4,10 @@
   "description": "React components to handle form validation",
   "main": "/build/index.js",
   "scripts": {
-    "build": "webpack --mode production",
-    "lint": "eslint --ext .js --ext .jsx src"
+    "build:dev": "npm run lint && webpack --mode development",
+    "build": "npm run lint && npm run test && webpack --mode production",
+    "lint": "eslint --ext .js --ext .jsx src test",
+    "test": "jest"
   },
   "pre-commit": [
     "lint"
@@ -31,12 +33,19 @@
     "eslint-plugin-import": "^2.13.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.10.0",
+    "jest": "^23.4.1",
     "path": "^0.12.7",
     "pre-commit": "^1.2.2",
+    "prop-types": "^15.6.2",
+    "react": "^16.4.1",
     "webpack": "^4.16.0",
     "webpack-cli": "^3.0.8"
   },
   "peerDependencies": {
+    "prop-types": "^15.6.2",
     "react": "^16.4.1"
+  },
+  "jest": {
+    "collectCoverage": true
   }
 }
