@@ -10,7 +10,8 @@
     "test": "jest"
   },
   "pre-commit": [
-    "lint"
+    "lint",
+    "test"
   ],
   "repository": {
     "type": "git",
