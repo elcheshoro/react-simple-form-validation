@@ -2,6 +2,18 @@
 
 A simple lightweight package to help with validating forms and displaying errors on inputs.
 
+## Installation
+
+```bash
+npm install --save react-simple-form-validation
+```
+
+or
+
+```bash
+yarn add react-simple-form-validation
+```
+
 ## How to use
 
 The concept behind this library is that you can style and structure your form however you wish and you just wrap your inputs in Field tags. This will inject the onChange, value and errorMessage props into your input component.
