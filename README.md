@@ -32,10 +32,10 @@ class MyForm extends Component {
     this.onChange = this.onChange.bind(this);
   }
 
-  onChange({ username, password }, isValid) {
+  onChange({ firstName, lastName }, isValid) {
     this.setState({
-      username,
-      password,
+      firstName,
+      lastName,
       isValid,
     });
   }
