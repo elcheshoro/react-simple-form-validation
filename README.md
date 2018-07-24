@@ -79,6 +79,44 @@ class MyForm extends Component {
 }
 ```
 
+## Components
+
+### `Form`
+
+Wrap your fields in a `Form` component which handles the changing of values and validation of fields.
+
+#### `values: object`
+
+A key/value pair of values for the form. The keys should correspond to the `fieldKey` props passed to the `Field` components in the `Form`
+
+#### `onChange: (newValues: object, isValid: boolean) => any`
+
+A change handler which will be called when the form values change. It will be called the the object of new values and a boolean value stating whether the current values are valid.
+
+#### `children: Component`
+
+The children passed through can be in any format. They should contain `Field` components in order to make use of the `Form`.
+
+#### `showErrors?: boolean`
+
+A boolean value which determines whether the `Form` should pass the error messages through to the components.
+
+### Field
+
+Wrap your input components in a field to let the `Form` know they need watching for changes and validation.
+
+#### `valueKey: string`
+
+This key should correspond to the key name on the `values` prop passed to the `Form`. The `fieldKey` should be unique otherwise the `Form` will throw an error.
+
+#### `getValidationError: (value: any) => string`
+
+A function which returns a validation error based on the current value of the `Field`. The `Form` assumes if this function returns the empty string then the `Field` is valid.
+
+#### `children: Component`
+
+The child should be a component which takes the props `errorMessage: string`, `onChange: (newValue: any) => any` and `value: any`.
+
 ## Authors
 
 Alexander Cheshire
