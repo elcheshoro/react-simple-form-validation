@@ -28,7 +28,7 @@ class Form extends Component {
   }
 
   renderChildren(childrenToProcess) {
-    const { values } = this.props;
+    const { values, showErrors } = this.props;
     return processFields(
       childrenToProcess,
       ({ props: { valueKey, children, getValidationError } }) => {
@@ -47,7 +47,7 @@ class Form extends Component {
                 );
                 childProps.onChange(newValue);
               },
-              errorMessage: validationError,
+              errorMessage: showErrors ? validationError : '',
             })}
           </div>
         );
@@ -65,10 +65,15 @@ class Form extends Component {
   }
 }
 
+Form.defaultProps = {
+  showErrors: true,
+};
+
 Form.propTypes = {
   children: PropTypes.node.isRequired,
   values: PropTypes.objectOf(PropTypes.any).isRequired,
   onChange: PropTypes.func.isRequired,
+  showErrors: PropTypes.bool,
 };
 
 export {
