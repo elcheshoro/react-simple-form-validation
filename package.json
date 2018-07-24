@@ -7,7 +7,8 @@
     "build:dev": "npm run lint && webpack --mode development",
     "build": "npm run lint && npm run test && webpack --mode production",
     "lint": "eslint --ext .js --ext .jsx src test",
-    "test": "jest"
+    "test": "jest",
+    "prepublishOnly": "npm run build"
   },
   "pre-commit": [
     "lint",
