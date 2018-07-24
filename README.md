@@ -117,6 +117,10 @@ A function which returns a validation error based on the current value of the `F
 
 The child should be a component which takes the props `errorMessage: string`, `onChange: (newValue: any) => any` and `value: any`.
 
+## Issues
+
+Please log any issues to the issue tracker in GitHub [[Issues](https://github.com/elcheshoro/react-simple-form-validation/issues)].
+
 ## Authors
 
 Alexander Cheshire
