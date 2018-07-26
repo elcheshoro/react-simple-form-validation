@@ -5,8 +5,8 @@ module.exports = {
   output: {
     library: 'react-simple-form-validation',
     libraryTarget: 'umd',
-    path: path.resolve(__dirname, 'build'),
-    filename: 'index.js',
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'react-simple-form-validation.js',
   },
   externals: {
     react: {
