@@ -10,7 +10,7 @@
     "build:umd": "webpack --mode development",
     "build:umd:min": "webpack --mode production --output-filename react-simple-form-validation.min.js",
     "build": "npm run lint && npm run test && npm run build:umd && npm run build:umd:min && npm run build:es && npm run build:commonjs",
-    "lint": "eslint --ext .js --ext .jsx src test",
+    "lint": "eslint --ext .js --ext .jsx src tests",
     "test": "jest",
     "prepublishOnly": "npm run build"
   },
