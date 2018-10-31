@@ -1,15 +1,11 @@
 /* eslint react/no-unused-prop-types: 0 */
-import React, { Component } from 'react';
+import { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class Field extends Component {
   render() {
     const { children } = this.props;
-    return (
-      <div>
-        {children}
-      </div>
-    );
+    return children;
   }
 }
 
