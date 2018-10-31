@@ -1,4 +1,4 @@
-import React, { cloneElement } from 'react';
+import { cloneElement } from 'react';
 import { Field } from '../../field/field';
 
 // This function assumes it is going to return jsx but
@@ -7,12 +7,10 @@ const processFields = (children, onField) => {
   if (Array.isArray(children)) {
     // There is no other unique key which can be used other than index and since the order
     // of the form is unlikely to change we should not see a hit in performance.
-    return children.map((child, index) => (
-      // eslint-disable-next-line react/no-array-index-key
-      <div key={index}>
-        {processFields(child, onField)}
-      </div>
-    ));
+    return children.map((child, index) => {
+      const element = processFields(child, onField);
+      return element ? cloneElement(element, { key: index }) : null;
+    });
   }
 
   if (!children.props || !children.props.children) {

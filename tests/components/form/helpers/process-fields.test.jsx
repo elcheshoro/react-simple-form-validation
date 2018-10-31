@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { cloneElement } from 'react';
 
 import { Field } from '../../../../src/components/field/field';
 
@@ -73,12 +73,10 @@ test('returns the result of the handler for a nested field element', () => {
   expect(processFields(component, onField)).toEqual((
     <div>
       <div key={0}>
-        <div>
-          Test component
-        </div>
+        Test component
       </div>
       <div key={1}>
-        {processedField}
+        Processed
       </div>
     </div>
   ));
@@ -111,10 +109,10 @@ test('for an array of components it returns the array of results', () => {
   ];
   expect(processFields(component, onField)).toEqual([
     <div key={0}>
-      {firstProcessedField}
+      First processed
     </div>,
     <div key={1}>
-      {secondProcessedField}
+      Second processed
     </div>,
   ]);
 });
