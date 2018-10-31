@@ -1,4 +1,4 @@
-import React, { Component, cloneElement } from 'react';
+import { Component, cloneElement } from 'react';
 import PropTypes from 'prop-types';
 
 import { processFields } from './helpers/process-fields';
@@ -35,33 +35,25 @@ class Form extends Component {
         const value = values[valueKey];
         const childProps = children.props;
         const validationError = getValidationError(value);
-        return (
-          <div>
-            {cloneElement(children, {
-              ...childProps,
-              value,
-              onChange: (newValue) => {
-                this.onChange(
-                  newValue,
-                  valueKey,
-                );
-                childProps.onChange(newValue);
-              },
-              errorMessage: showErrors ? validationError : '',
-            })}
-          </div>
-        );
+        return cloneElement(children, {
+          ...childProps,
+          value,
+          onChange: (newValue) => {
+            this.onChange(
+              newValue,
+              valueKey,
+            );
+            childProps.onChange(newValue);
+          },
+          errorMessage: showErrors ? validationError : '',
+        });
       },
     );
   }
 
   render() {
     const { children } = this.props;
-    return (
-      <div>
-        {this.renderChildren(children)}
-      </div>
-    );
+    return this.renderChildren(children);
   }
 }
 
