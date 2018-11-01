@@ -4,11 +4,6 @@ import PropTypes from 'prop-types';
 import { processFields } from './helpers/process-fields';
 
 class Form extends Component {
-  componentDidMount() {
-    const { values, onChange } = this.props;
-    onChange(values, this.isValid(values));
-  }
-
   onChange(value, key) {
     const { values, onChange } = this.props;
     const newValues = Object.assign({}, values, { [key]: value });
