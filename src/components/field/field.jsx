@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 
 class Field extends Component {
   render() {
-    const { children } = this.props;
-    return children;
+    const { render } = this.props;
+    return render();
   }
 }
 
@@ -13,7 +13,7 @@ class Field extends Component {
 // the form component also looks for some props on this object
 // so it is worthwhile validating them here.
 Field.propTypes = {
-  children: PropTypes.node.isRequired,
+  render: PropTypes.func.isRequired,
   getValidationError: PropTypes.func.isRequired,
   valueKey: PropTypes.string.isRequired,
 };

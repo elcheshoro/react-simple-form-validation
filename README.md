@@ -22,7 +22,7 @@ The concept behind this library is that you can style and structure your form ho
 import React, { Component } from 'react';
 import { Form, Field } from 'react-simple-form-validation';
 
-const TextInput = ({ onChange, errorMessage, value }) => (
+const renderTextInput = ({ onChange, errorMessage, value }) => (
   <div>
     <input
       type="text"
@@ -60,16 +60,14 @@ class MyForm extends Component {
           <Field
             valueKey="firstName"
             getValidationError={(value) => value === '' ? 'First name is required' : ''}
-          >
-            <TextInput />
-          </Field>
+            render={this.renderTextInput}
+          />
           <div>
             <Field
               valueKey="lastName"
               getValidationError={(value) => value === '' ? 'Last name can not be blank' : ''}
-            >
-              <TextInput />
-            </Field>
+              render={this.renderTextInput}
+            />
           </div>
           <div>Please fill in your details</div>
         </div>
@@ -113,9 +111,9 @@ This key should correspond to the key name on the `values` prop passed to the `F
 
 A function which returns a validation error based on the current value of the `Field`. The `Form` assumes if this function returns the empty string then the `Field` is valid.
 
-#### `children: Component`
+#### `render: () => Component`
 
-The child should be a component which takes the props `errorMessage: string`, `onChange: (newValue: any) => any` and `value: any`.
+The function takes an object with the following properties `errorMessage: string`, `onChange: (newValue: T) => T` and `value: T` and should return a renderable element.
 
 ## Issues
 
