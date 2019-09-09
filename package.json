@@ -1,6 +1,6 @@
 {
   "name": "react-simple-form-validation",
-  "version": "0.2.4",
+  "version": "0.3.0",
   "description": "React components to handle form validation",
   "main": "lib/index.js",
   "module": "es/index.js",
